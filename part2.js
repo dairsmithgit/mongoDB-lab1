@@ -9,3 +9,10 @@ db.people.deleteOne({first_name: "Wanda", last_name: "Bowman"});
 // delete everyone with no email
 
 // submissions collection
+db.submissions.insertMany([{title: "The River Bend", upvotes: 10, downvotes: 2, artist: ObjectId("60ae71ce91e234aa2ff88a0f")},
+{title: "Nine Lives", upvotes: 7, downvotes: 0, artist: ObjectId("60ae71ce91e234aa2ff88a3d")},
+{title: "Star Bright", upvotes: 19, downvotes: 3, artist: ObjectId("60ae71ce91e234aa2ff88ac0")},
+{title: "Why Like This?", upvotes: 1, downvotes: 5, artist: ObjectId("60ae71ce91e234aa2ff88a46")},
+{title: "Non Sequitur", upvotes: 11, downvotes: 1, artist: ObjectId("60ae71ce91e234aa2ff88a0d")}])
+db.submissions.updateOne({title: "The River Bend"}, { $inc: {upvotes: 2}});
+db.submissions.updateMany({upvotes: {$gte: 10}}, {$set: {round2: true}});
