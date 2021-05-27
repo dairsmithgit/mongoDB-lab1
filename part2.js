@@ -6,7 +6,7 @@ db.people.updateOne({first_name: "Rebecca", last_name: "Hayes"}, { $unset: {emai
 db.people.updateMany({state: "Missouri"}, { $inc: {age: 1} });
 db.people.replaceOne({first_name: "Jerry", last_name: "Baker"}, { first_name: "Jerry", last_name: "Baker-Mendez", email: "jerry@classic.ly", gender:"Male", age: 28, state: "Vermont", "children": [{name: "Alan", age: 18}, {name: "Jenny", age: 3}] });
 db.people.deleteOne({first_name: "Wanda", last_name: "Bowman"});
-// delete everyone with no email
+db.people.deleteMany({email: null});
 
 // submissions collection
 db.submissions.insertMany([{title: "The River Bend", upvotes: 10, downvotes: 2, artist: ObjectId("60ae71ce91e234aa2ff88a0f")},
